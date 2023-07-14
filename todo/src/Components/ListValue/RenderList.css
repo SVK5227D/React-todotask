@@ -1,0 +1,12 @@
+.ListContainer {
+    display: flex;
+}
+
+.todoValue {
+    margin-left: 2%;
+    color: #ffffff;
+}
+
+.listCard {
+    margin-left: 32%;
+}

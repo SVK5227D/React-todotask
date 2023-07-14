@@ -1,29 +1,26 @@
-// import logo from './logo.svg';
-import './App.css';
-import Form from './Components/Form/Form';
+import React, { useState } from "react";
+
+import FormValue from "./Components/Form/Form";
+import ListRender from "./Components/ListValue/NewTaskList";
+import './App.css'
+
+const todoList = [];
 
 function App() {
+  const [todoListValue, setTodoListValue] = useState(todoList);
+  const addTodoHandler = (todo) => {
+    setTodoListValue((prevTodo) => {
+      return [todo, ...prevTodo];
+    });
+  };
+  console.log("App js file value check");
+  console.log(todoListValue);
   return (
     <div>
-    <h3>Todo List</h3>
-      <Form/>
+      <h3 className="titielApplication">Todo List</h3>
+      <FormValue onAddTodo={addTodoHandler} />
+      <ListRender items={todoListValue} /> 
     </div>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 
